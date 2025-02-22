@@ -5,10 +5,26 @@
   <title>
    Dinesh Padhan
   </title>
+  <meta name="description" content="Dinesh Padhan's Portfolio showcasing web development projects and skills.">
+  <meta name="keywords" content="Dinesh Padhan, Portfolio, Web Development, Projects, Software Engineer">
+  <meta name="author" content="Dinesh Padhan">
+  <meta name="robots" content="index, follow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@imDineshpadhan">
+  <meta name="twitter:title" content="Dinesh Padhan's Portfolio">
+  <meta name="twitter:description" content="Showcasing my work and projects as a web developer.">
+  <meta name="twitter:image" content="https://x.com/imDineshpadhan">
+  <meta property="og:title" content="Dinesh Padhan's Portfolio">
+  <meta property="og:description" content="Showcasing my work and projects as a developer.">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5622AQGxNzbyAdgV6w/feedshare-shrink_1280/feedshare-shrink_1280/0/1712579607954?e=1743033600&v=beta&t=NbD6YzE81bZurhRz3CnFEOmtxPJYEzLKHFeUxtC4_a8">
+  <meta property="og:url" content="dineshpadhan.me">
+  <meta property="og:type" content="website">
+    
+    <link href="https://storage.googleapis.com/a1aa/favicon/favicon.ico" rel="icon" type="image/x-icon"/>
   <script src="https://cdn.tailwindcss.com">
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
    body {
             font-family: 'Playfair Display', serif;
@@ -27,14 +43,100 @@
     .menu-exit-active {
         transform: translateX(100%);
     }
+    .download-button {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f59e0b;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: background-color 0.3s ease;
+    }
+    .download-button:hover {
+        background-color: #d97706;
+    }
+    .download-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s ease;
+    }
+    .download-button:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+    .header-small {
+        padding: 10px 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .header-large {
+        padding: 20px 0;
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .fade-in {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    .fade-in-visible {
+        opacity: 1;
+    }
+    .project-card {
+        position: relative;
+        overflow: hidden;
+    }
+    .project-card img {
+        transition: transform 0.3s ease;
+    }
+    .project-card:hover img {
+        transform: scale(1.1);
+    }
+    .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    .project-card:hover .project-overlay {
+        opacity: 1;
+    }
   </style>
  </head>
  <body class="bg-gray-100">
   <!-- Header -->
-  <header class="bg-white shadow-md">
+  <header class="header header-large bg-white shadow-md">
    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="text-2xl font-bold text-black">
-     Dinesh Padhan
+    <div class="text-2xl font-bold text-black" style="user-select: none;">
+     <a href="#">Dinesh Padhan</a>
     </div>
     <nav class="hidden md:flex space-x-4">
      <a class="text-black hover:text-yellow-500" href="#Home">
@@ -45,6 +147,9 @@
      </a>
      <a class="text-black hover:text-yellow-500" href="#Projects">
       Projects
+     </a>
+     <a class="text-black hover:text-yellow-500" href="#Resume">
+      Resume
      </a>
      <a class="text-black hover:text-yellow-500" href="#Contact">
       Contact
@@ -60,12 +165,12 @@
   </header>
   <!-- Mobile Menu -->
   <div class="fixed inset-0 bg-black bg-opacity-50 hidden" id="overlay" style="z-index: 1000;">
-   <div class="fixed right-0 top-0 h-full w-7/12 bg-white shadow-lg p-4 menu-enter" id="mobile-menu">
+   <div class="fixed right-0 top-0 h-full w-7/12 bg-white shadow-lg p-4 menu-enter menu-enter-active" id="mobile-menu">
     <button class="text-black focus:outline-none mb-4" id="close-menu">
      <i class="fas fa-times text-2xl">
      </i>
     </button>
-    <nav class="space-y-4">
+    <nav class="space-y-4 text-center text-2xl">
      <a class="block text-black hover:text-yellow-500" href="#Home">
       Home
      </a>
@@ -75,6 +180,9 @@
      <a class="block text-black hover:text-yellow-500" href="#Projects">
       Projects
      </a>
+     <a class="block text-black hover:text-yellow-500" href="#Resume">
+      Resume
+     </a>
      <a class="block text-black hover:text-yellow-500" href="#Contact">
       Contact
      </a>
@@ -82,8 +190,8 @@
    </div>
   </div>
   <!-- Hero Section -->
-  <section id="Home" class="relative bg-black text-white">
-   <img alt="A scenic background image with mountains and a clear sky" class="absolute inset-0 w-full h-full object-cover opacity-50" height="1080" src="https://storage.googleapis.com/a1aa/image/yUohnLCiJs8fIK5_SVbEdZ4BZ513JRwxDFCCEmczE_M.jpg" width="1920"/>
+  <section class="relative bg-black text-white" id="Home">
+   <img alt="A background image showing a clean, minimalistic workspace with a laptop, notebook, and coffee cup" class="absolute inset-0 w-full h-full object-cover opacity-50" height="1080" src="https://storage.googleapis.com/a1aa/image/qwtcHvicjba7c-pWXTZeQ1zHd8yE6TqcZ6jeBsJlF-U.jpg" width="1920"/>
    <div class="container mx-auto px-4 py-32 relative z-10 text-center">
     <h1 class="text-4xl md:text-6xl font-bold mb-4">
      Welcome to My Portfolio
@@ -97,10 +205,10 @@
    </div>
   </section>
   <!-- About Section -->
-  <section id="About" class="container mx-auto px-4 py-16">
+  <section class="container mx-auto px-4 py-16" id="About">
    <div class="flex flex-col md:flex-row items-center">
     <div class="md:w-1/2">
-     <img alt="Portrait of Dinesh Padhan" class="rounded-full w-64 h-64 mx-auto md:mx-0" height="500" src="https://storage.googleapis.com/a1aa/image/elXwZ-jtfmoXexXp5RMKbF5hPIDGatVuVG3Q9PwbLfw.jpg" width="500"/>
+     <img alt="Portrait of Dinesh Padhan" class="rounded-full w-64 h-64 mx-auto md:mx-0 fade-in" height="549" id="about-image" src="https://static.wixstatic.com/media/53bc72_d59dc54380f644e2a0a19ca7b27e26a9~mv2.jpg/v1/crop/x_0,y_177,w_1063,h_1063/fill/w_549,h_549,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/20240406_101855_edited.jpg" width="549"/>
     </div>
     <div class="md:w-1/2 mt-8 md:mt-0 md:pl-16">
      <h2 class="text-3xl font-bold mb-4 text-black">
@@ -116,13 +224,13 @@
    </div>
   </section>
   <!-- Projects Section -->
-  <section id="Projects" class="bg-gray-200 py-16">
+  <section class="bg-gray-200 py-16" id="Projects">
    <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12 text-black">
      Projects
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 1" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/hdxJLavhSG9sd8gczkS5eNAYydivsnA1O_hs-9V_o3s.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -132,8 +240,16 @@
         Description of Project 1. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 1. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project1" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 2" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/IJqWRCeYA4MZnYHWCQ_Z4RV2ZVmSAjoBFS7VapPQNHA.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -143,8 +259,16 @@
         Description of Project 2. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 2. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project2" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 3" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/QZpD8L5D0VdZNgBoUSJp4xsViqpphTAi1TgJsnC4jcg.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -154,8 +278,16 @@
         Description of Project 3. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 3. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project3" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 4" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/OeQtr_-Dmn_tHNbbCoBN3iyPsUtDt_aP3JJ3CWNby2I.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -165,8 +297,16 @@
         Description of Project 4. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 4. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project4" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 5" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/cXf0jbHTN6uJ32dN9moolmqoMPfvwkwDvjx_EReyA1Y.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -176,8 +316,16 @@
         Description of Project 5. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 5. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project5" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden project-card">
       <img alt="Screenshot of Project 6" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/aADI7LoU_V_o0aK7o2Z6WeFBmYdvjydHLTM9lz5cDSs.jpg" width="600"/>
       <div class="p-4">
        <h3 class="text-xl font-bold mb-2 text-black">
@@ -187,12 +335,31 @@
         Description of Project 6. This project involves...
        </p>
       </div>
+      <div class="project-overlay">
+       <p>
+        This is a detailed description of Project 6. It involves...
+       </p>
+       <a class="text-yellow-500 hover:text-yellow-700" href="https://github.com/yourusername/project6" target="_blank">
+        View on GitHub
+       </a>
+      </div>
      </div>
     </div>
    </div>
   </section>
+  <!-- Resume Section -->
+  <section class="container mx-auto px-4 py-16" id="Resume">
+   <h2 class="text-3xl font-bold text-center mb-12 text-black">
+    Resume
+   </h2>
+   <div class="text-center">
+    <a class="download-button" download="" href="path/to/your/resume.pdf">
+     Download Resume
+    </a>
+   </div>
+  </section>
   <!-- Contact Section -->
-  <section id="Contact" class="container mx-auto px-4 py-16">
+  <section class="container mx-auto px-4 py-16" id="Contact">
    <h2 class="text-3xl font-bold text-center mb-12 text-black">
     Contact Me
    </h2>
@@ -239,48 +406,69 @@
       <i class="fab fa-twitter">
       </i>
      </a>
-     <a class="text-gray-400 hover:text-yellow-500" href="#">
-      <i class="fab fa-linkedin-in">
-      </i>
-     </a>
-     <a class="text-gray-400 hover:text-yellow-500" href="#">
-      <i class="fab fa-github">
-      </i>
-     </a>
-    </div>
-   </div>
-  </footer>
-  <script>
-   document.getElementById('menu-button').addEventListener('click', function() {
-        var overlay = document.getElementById('overlay');
-        var menu = document.getElementById('mobile-menu');
-        overlay.classList.remove('hidden');
-        menu.classList.remove('menu-exit');
-        menu.classList.add('menu-enter-active');
-    });
-
-    document.getElementById('close-menu').addEventListener('click', function() {
-        var overlay = document.getElementById('overlay');
-        var menu = document.getElementById('mobile-menu');
-        menu.classList.remove('menu-enter-active');
-        menu.classList.add('menu-exit-active');
-        setTimeout(function() {
-            overlay.classList.add('hidden');
-            menu.classList.remove('menu-exit-active');
-        }, 300);
-    });
-
-    document.getElementById('overlay').addEventListener('click', function(event) {
-        if (event.target === this) {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.remove('menu-enter-active');
-            menu.classList.add('menu-exit-active');
-            setTimeout(function() {
-                event.target.classList.add('hidden');
-                menu.classList.remove('menu-exit-active');
-            }, 300);
-        }
-    });
-  </script>
- </body>
-</html>
+     <a class="text-gray-400 hover:text-yellow-500 " href="#">
+        <i class="fab fa-linkedin-in">
+        </i>
+       </a>
+       <a class="text-gray-400 hover:text-yellow-500" href="#">
+        <i class="fab fa-github">
+        </i>
+       </a>
+      </div>
+     </div>
+    </footer>
+    <script>
+     document.getElementById('menu-button').addEventListener('click', function() {
+          var overlay = document.getElementById('overlay');
+          var menu = document.getElementById('mobile-menu');
+          overlay.classList.remove('hidden');
+          menu.classList.remove('menu-exit');
+          menu.classList.add('menu-enter-active');
+      });
+  
+      document.getElementById('close-menu').addEventListener('click', function() {
+          var overlay = document.getElementById('overlay');
+          var menu = document.getElementById('mobile-menu');
+          menu.classList.remove('menu-enter-active');
+          menu.classList.add('menu-exit-active');
+          setTimeout(function() {
+              overlay.classList.add('hidden');
+              menu.classList.remove('menu-exit-active');
+          }, 300);
+      });
+  
+      document.getElementById('overlay').addEventListener('click', function(event) {
+          if (event.target === this) {
+              var menu = document.getElementById('mobile-menu');
+              menu.classList.remove('menu-enter-active');
+              menu.classList.add('menu-exit-active');
+              setTimeout(function() {
+                  event.target.classList.add('hidden');
+                  menu.classList.remove('menu-exit-active');
+              }, 300);
+          }
+      });
+  
+      window.addEventListener('scroll', function() {
+          var header = document.querySelector('.header');
+          if (window.scrollY > 50) {
+              header.classList.remove('header-large');
+              header.classList.add('header-small');
+          } else {
+              header.classList.remove('header-small');
+              header.classList.add('header-large');
+          }
+  
+          var aboutImage = document.getElementById('about-image');
+          var aboutSection = document.getElementById('About');
+          var aboutSectionPosition = aboutSection.getBoundingClientRect().top;
+          var screenPosition = window.innerHeight / 1.3;
+  
+          if (aboutSectionPosition < screenPosition) {
+              aboutImage.classList.add('fade-in-visible');
+          }
+      });
+    </script>
+   </body>
+  </html>
+  
