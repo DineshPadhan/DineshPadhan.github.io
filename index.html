@@ -1,30 +1,286 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Padhan | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Dinesh Padhan</h1>
-        <p>Web Developer | Designer | Tech Enthusiast</p>
-    </header>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Dinesh Padhan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Playfair Display', serif;
+        }
+    .menu-enter {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .menu-enter-active {
+        transform: translateX(0);
+    }
+    .menu-exit {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    .menu-exit-active {
+        transform: translateX(100%);
+    }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold text-black">
+     Dinesh Padhan
+    </div>
+    <nav class="hidden md:flex space-x-4">
+     <a class="text-black hover:text-yellow-500" href="#Home">
+      Home
+     </a>
+     <a class="text-black hover:text-yellow-500" href="#About">
+      About
+     </a>
+     <a class="text-black hover:text-yellow-500" href="#Projects">
+      Projects
+     </a>
+     <a class="text-black hover:text-yellow-500" href="#Contact">
+      Contact
+     </a>
+    </nav>
+    <div class="md:hidden">
+     <button class="text-black focus:outline-none" id="menu-button">
+      <i class="fas fa-bars text-2xl">
+      </i>
+     </button>
+    </div>
+   </div>
+  </header>
+  <!-- Mobile Menu -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 hidden" id="overlay" style="z-index: 1000;">
+   <div class="fixed right-0 top-0 h-full w-7/12 bg-white shadow-lg p-4 menu-enter" id="mobile-menu">
+    <button class="text-black focus:outline-none mb-4" id="close-menu">
+     <i class="fas fa-times text-2xl">
+     </i>
+    </button>
+    <nav class="space-y-4">
+     <a class="block text-black hover:text-yellow-500" href="#Home">
+      Home
+     </a>
+     <a class="block text-black hover:text-yellow-500" href="#About">
+      About
+     </a>
+     <a class="block text-black hover:text-yellow-500" href="#Projects">
+      Projects
+     </a>
+     <a class="block text-black hover:text-yellow-500" href="#Contact">
+      Contact
+     </a>
+    </nav>
+   </div>
+  </div>
+  <!-- Hero Section -->
+  <section id="Home" class="relative bg-black text-white">
+   <img alt="A scenic background image with mountains and a clear sky" class="absolute inset-0 w-full h-full object-cover opacity-50" height="1080" src="https://storage.googleapis.com/a1aa/image/yUohnLCiJs8fIK5_SVbEdZ4BZ513JRwxDFCCEmczE_M.jpg" width="1920"/>
+   <div class="container mx-auto px-4 py-32 relative z-10 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+     Welcome to My Portfolio
+    </h1>
+    <p class="text-lg md:text-2xl mb-8">
+     Showcasing my work and projects
+    </p>
+    <a class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded" href="#">
+     Explore More
+    </a>
+   </div>
+  </section>
+  <!-- About Section -->
+  <section id="About" class="container mx-auto px-4 py-16">
+   <div class="flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2">
+     <img alt="Portrait of Dinesh Padhan" class="rounded-full w-64 h-64 mx-auto md:mx-0" height="500" src="https://storage.googleapis.com/a1aa/image/elXwZ-jtfmoXexXp5RMKbF5hPIDGatVuVG3Q9PwbLfw.jpg" width="500"/>
+    </div>
+    <div class="md:w-1/2 mt-8 md:mt-0 md:pl-16">
+     <h2 class="text-3xl font-bold mb-4 text-black">
+      About Me
+     </h2>
+     <p class="text-gray-700 mb-4">
+      I am Dinesh Padhan, a passionate developer with experience in various technologies. I love creating innovative solutions and working on exciting projects.
+     </p>
+     <p class="text-gray-700">
+      My expertise includes web development, mobile app development, and software engineering. I am always eager to learn new skills and take on new challenges.
+     </p>
+    </div>
+   </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="Projects" class="bg-gray-200 py-16">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-black">
+     Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 1" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/hdxJLavhSG9sd8gczkS5eNAYydivsnA1O_hs-9V_o3s.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 1
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 1. This project involves...
+       </p>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 2" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/IJqWRCeYA4MZnYHWCQ_Z4RV2ZVmSAjoBFS7VapPQNHA.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 2
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 2. This project involves...
+       </p>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 3" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/QZpD8L5D0VdZNgBoUSJp4xsViqpphTAi1TgJsnC4jcg.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 3
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 3. This project involves...
+       </p>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 4" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/OeQtr_-Dmn_tHNbbCoBN3iyPsUtDt_aP3JJ3CWNby2I.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 4
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 4. This project involves...
+       </p>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 5" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/cXf0jbHTN6uJ32dN9moolmqoMPfvwkwDvjx_EReyA1Y.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 5
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 5. This project involves...
+       </p>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 6" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/aADI7LoU_V_o0aK7o2Z6WeFBmYdvjydHLTM9lz5cDSs.jpg" width="600"/>
+      <div class="p-4">
+       <h3 class="text-xl font-bold mb-2 text-black">
+        Project 6
+       </h3>
+       <p class="text-gray-700">
+        Description of Project 6. This project involves...
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="Contact" class="container mx-auto px-4 py-16">
+   <h2 class="text-3xl font-bold text-center mb-12 text-black">
+    Contact Me
+   </h2>
+   <div class="max-w-lg mx-auto">
+    <form action="#" class="bg-white shadow-md rounded-lg p-8" method="POST">
+     <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="name">
+       Name
+      </label>
+      <input class="w-full px-3 py-2 border rounded-lg" id="name" name="name" required="" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="email">
+       Email
+      </label>
+      <input class="w-full px-3 py-2 border rounded-lg" id="email" name="email" required="" type="email"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="message">
+       Message
+      </label>
+      <textarea class="w-full px-3 py-2 border rounded-lg" id="message" name="message" required="" rows="4"></textarea>
+     </div>
+     <div class="text-center">
+      <button class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded" type="submit">
+       Send Message
+      </button>
+     </div>
+    </form>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8">
+   <div class="container mx-auto px-4 text-center">
+    <p>
+     © 2023 Dinesh Padhan. All rights reserved.
+    </p>
+    <div class="mt-4 space-x-4">
+     <a class="text-gray-400 hover:text-yellow-500" href="#">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a class="text-gray-400 hover:text-yellow-500" href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a class="text-gray-400 hover:text-yellow-500" href="#">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+     <a class="text-gray-400 hover:text-yellow-500" href="#">
+      <i class="fab fa-github">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   document.getElementById('menu-button').addEventListener('click', function() {
+        var overlay = document.getElementById('overlay');
+        var menu = document.getElementById('mobile-menu');
+        overlay.classList.remove('hidden');
+        menu.classList.remove('menu-exit');
+        menu.classList.add('menu-enter-active');
+    });
 
-    <section class="about">
-        <h2>About Me</h2>
-        <p>Hello! I am Dinesh Padhan, a passionate web developer with expertise in HTML, CSS, and JavaScript.</p>
-    </section>
+    document.getElementById('close-menu').addEventListener('click', function() {
+        var overlay = document.getElementById('overlay');
+        var menu = document.getElementById('mobile-menu');
+        menu.classList.remove('menu-enter-active');
+        menu.classList.add('menu-exit-active');
+        setTimeout(function() {
+            overlay.classList.add('hidden');
+            menu.classList.remove('menu-exit-active');
+        }, 300);
+    });
 
-    <section class="contact">
-        <h2>Contact</h2>
-        <p>Email: dinesh@example.com</p>
-        <p>Phone: +91 98765 43210</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Dinesh Padhan. All Rights Reserved.</p>
-    </footer>
-</body>
+    document.getElementById('overlay').addEventListener('click', function(event) {
+        if (event.target === this) {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.remove('menu-enter-active');
+            menu.classList.add('menu-exit-active');
+            setTimeout(function() {
+                event.target.classList.add('hidden');
+                menu.classList.remove('menu-exit-active');
+            }, 300);
+        }
+    });
+  </script>
+ </body>
 </html>
